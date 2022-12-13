@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <script src="js/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="css/sweetalert.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="lib/aos/aos.css" rel="stylesheet">
+  <link href="lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <title>Cookies Page</title>
+</head>
+<body>
+  <nav id="nav-menu-container">
+    <ul class="nav-menu">
+      <li class="menu-active"><a href="index.html">Home</a></li>
+      <li><a href="storecookie.html">Recent User</a></li>
+    </ul>
+  </nav>
+  <form >
+      <input type="text" name="name" id="name" placeholder="Please Enter Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" /><br>
+
+      <input type="text" name="email" id="email" placeholder="Please Enter Your Email" data-rule="email" data-msg="Please enter a valid email" /><br>
+
+      <input type="password" name="password" id="password" placeholder="Enter password"   /><br>
+
+      <input type="text" name="phone" id="phone" placeholder="Enter Your Phone Number " oninput="phones()"   /><br>
+    
+      <input type="text" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+  
+      <textarea name="message" rows="5" data-rule="required" id="msg" data-msg="Please write something for us" placeholder="Message"></textarea>
+      <br>
+      <p style="display:inline-block;">Theme</p>
+      <input type="radio" name="color" id="color" value="#b0e9f7" style="accent-color: #b0e9f7;" checked> 
+      <input type="radio" name="color" id="color" value="#ff81c0" style="accent-color: #ff81c0;"> 
+      <input type="radio" name="color" id="color" value="#c9f2a2" style="accent-color: #c9f2a2;">
+      <input type="radio" name="color" id="color" value="#a187ff" style="accent-color: #a187ff;">
+      <input type="radio" name="color" id="color" value="#807b7e" style="accent-color: #807b7e;"> 
+      <br>
+      <p style="display:inline-block;">Image</p>
+      <lable>1</lable><input type="radio" name="img" id="imgs" value="img1.jpg"  checked> 
+      <lable>2</lable>
+      <input type="radio" name="img" id="imgs2" value="img2.png" >
+      <br><br>
+      <button type="submit" name="validate" value="validate" onclick="val()">Submit</button>
+  </form>
+  <script>
+    function phones()
+{
+ var ph=document.getElementById("phone").value;
+ if(ph>9999999999)
+ {
+   document.getElementById("phone").value=ph.slice(0,-1);
+ }
+ if(isNaN(ph))
+ {
+   document.getElementById("phone").value=ph.slice(0,-1);
+ }
+}
+  function val()
+  { var res="";
+   var name=document.getElementById("name").value;
+   var email=document.getElementById("email").value;
+   var phone=document.getElementById("phone").value;
+   var password=document.getElementById("password").value;
+   var subject=document.getElementById("subject").value;
+   var msg=document.getElementById("msg").value;
+   var colors=document.querySelector('input[name="color"]:checked').value;
+   var img=document.querySelector('input[name="img"]:checked').value;
+   
+   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+   {
+   }
+   else
+   {
+   res=res+"mail Invalid\n";
+   
+   }
+
+ var passpattern =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+       var password = document.getElementById('password').value;
+
+       if(!password.match(passpattern)) {
+           res=res+"Password Invalid\n";
+          
+       }
+       if(phone=="")
+       {
+         res=res+"Phone number is empty\n";
+       }
+       if(name=="")
+       {
+         res=res+"Name is empty\n";
+       }
+       if(subject=="")
+       {
+         res=res+"Subject is empty\n";
+       }
+
+if(res!="")
+{
+ JSalert1(res);
+  }
+  else
+  {
+   document.cookie = "name=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+   setCookie("name",name,2);
+   setCookie("email",email,2);
+   setCookie("phone",phone,2);
+   setCookie("color",colors,2);
+   setCookie("img",img,2);
+
+   localStorage.setItem("subject",subject);
+   localStorage.setItem("message",msg);
+
+
+   
+ JSalert2();
+  }
+}
+
+
+function JSalert1(res){
+ swal({   title: "ALERT!",   
+   text: res,   
+   type: "warning",   
+   showCancelButton: false,      
+   confirmButtonText: "OK",     
+   closeOnConfirm: false,   
+   closeOnCancel: false }
+   );
+}
+
+function JSalert2(){
+ swal({   title: "SUCCESS!",   
+   text: "Details submitted successfully and user created",   
+   type: "success",   
+   showCancelButton: false,      
+   confirmButtonText: "OK",     
+   closeOnConfirm: false,   
+   closeOnCancel: false }, 
+   function(isConfirm){   
+       if (isConfirm) 
+   {   
+          location.reload();
+       } 
+       });
+}
+
+
+
+function setCookie(cname, cvalue, exdays) {
+ const d = new Date();
+ d.setTime(d.getTime() + (exdays*24*60*60*1000));
+ let expires = "expires="+ d.toUTCString();
+ document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+
+if (sessionStorage.clickcount) {
+ sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+ document.getElementById("viewcount").innerHTML=Number(sessionStorage.clickcount)+" Page visits by you";
+} else {
+ sessionStorage.clickcount = 1;
+}
+
+
+function checkCookie() {
+ let color = getCookie("color");
+ if (color != "") {
+   
+  setvalues();
+ } else {
+   setCookie("color","#f7e7b0",2);
+ }
+}
+
+ </script>
+</body>
+</html>
