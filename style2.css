@@ -1,0 +1,14 @@
+body{
+    background-color:aquamarine;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    border: 3px solid royalblue;
+
+  }
+
+  table {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    border-collapse: collapse;
+    width: 80%;
+  }

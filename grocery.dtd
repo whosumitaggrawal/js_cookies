@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE grocery [
+<!ELEMENT details (empid,empname,empaddress,empphone,empsalary,empmail)>
+<!ELEMENT empid(#PCDATA)>
+<!ELEMENT empname (#PCDATA)>
+<!ELEMENT empaddress (#PCDATA)>
+<!ELEMENT empphone(#PCDATA)>
+<!ELEMENT empsalary(#PCDATA)>
+<!ELEMENT empmail(#PCDATA)>
+]>

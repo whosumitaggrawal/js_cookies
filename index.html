@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Grocery</title>
+</head>
+<style>
+  a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: mediumblue;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: mediumblue;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  </style>
+
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: Arial;
+    font-size: 17px;
+  }
+  
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+  }
+  
+  .content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  #myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #myBtn:hover {
+    background: #ddd;
+    color: black;
+  }
+  </style>
+  
+<body>
+    <h1 class="heading"><b>This is grocery shopping project</b></h1>
+    <p>If you want to enjoy music while shopping. Use this audio</p>
+    <audio controls>
+      <source src="music.mp3" type="audio/mpeg">
+      Your Browser does not support the audio element.
+    </audio>
+    <br><br>
+    <a href="formcookies.html">Click here to get the form for COOKIES</a>
+    <br><br>
+    <div class="emp">
+    <a href="index2.html">Click here to get the details of our EMPLOYEES</a>
+    </div>
+    <h2>We want your location for better experience of the site.</h2>
+    <button onclick="getLocation()">Get Location</button>
+    <div id="output"></div>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+      var x= document.getElementById('output');
+      function getLocation(){
+        if(navigator.geolocation){
+          navigator.geolocation.getCurrentPosition(
+            showPosition);
+        }else{
+          x.innerHTML="Browser not Supported";
+          }
+        }
+        function showPosition(position){
+          x.innerHTML="Latitude = "+position.coords.latitude
+          x.innerHTML += "<br />"
+          x.innerHTML += "Longitude =" +position.coords.longitude
+        }
+    </script>
+    <h2>Text input fields</h2>
+  <div class="testbox">
+  <form  name="myForm" target="_self">
+  <label for="fname">First name:<span>*</span></label><br>
+  <input type="text" id="fname" name="fname" placeholder="Enter first name"><br>
+
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" placeholder="Enter last name"><br>
+
+  <label for="email" name="email">Email:<span>*</span></label><br>
+  <input type="text" id="email" name="email" placeholder="Enter Your Email ID"><br>
+
+  <label for="contact">Phone Number:<span>*</span></label><br>
+  <input type="integer" id="contact" name="contact" placeholder="Enter Your Phone Number"><br>
+
+  <label for="password">Password:<span>*</span></label><br>
+  <input type="password" id ="pswd" name="pswd" placeholder="Password" />
+  <input type="password" id="cpswd" name="cpswd" placeholder="Confirm Password" />
+
+  <br><br>
+  <label for="city">Choose Your City</label>
+  <select name="city" id="city" name="city">
+    <option value="none" selected disabled hidden> Select Your City</option>
+    <option value="New Delhi">New Delhi</option>
+    <option value="Bengalore">Bangalore</option>
+    <option value="Hyderabad">Hyderabad</option>
+    <option value="Chennai">Chennai</option>
+    <option value="Gurgaon">Gurgaon</option>
+  </select>
+  <br><br>
+
+  <label for="preferences">Select all you want to purchase</label><br>
+  <input type="checkbox" id="veg" name="veg" value="vegetable">
+  <label for="veg">Vegetables</label><br>
+  <input type="checkbox" id="Fruits" name="Fruits" value="Fruits">
+  <label for="nonveg">Fruits</label><br>
+  <input type="checkbox" id="Dairy" name="Dairy" value="Dairy">
+  <label for="vegan">Dairy</label><br>
+  <input type="checkbox" id="Sweets" name="Sweets" value="Sweets">
+  <label for="vegan">Sweets</label><br>
+  <input type="checkbox" id="Meat" name="Meat" value="Meat">
+  <label for="vegan">Meat and Fish</label><br>
+  <br>
+  <br>
+  <label for="shopping">What are your eating preferences</label><br>
+  <input type="radio" id="Veg" name="type" value="Veg">
+  <label for="Vegetables">I am Vegetarian</label>
+  <input type="radio" id="nonveg" name="type" value="nonveg">
+  <label for="Fruits">I am Non-Vegetarian</label>
+  <input type="radio" id="vegan" name="type" value="vegan">
+  <label for="Dairy">I am Vegan</label>
+  <br>
+  <br>
+  <p><input type="checkbox" name="terms"> I accept the <u>Terms and Conditions</u></p>
+  
+  <br>
+</form>
+  </div>
+<button type="submit" name="validate" value="validate" onclick="validateForm()">Submit</button>
+    
+<h2>These are some of the Glimpes of our store</h2>
+<img src="shop1.jpg" alt="Glimpse of Our store 1" width="400" height="345">
+<img src="shop2.jpg" alt="Glimpse of Our store 2" width="400" height="345">
+<img src="shop3.jpg" alt="Glimpse of Our store 3" width="400" height="345">
+  <h2>Select on the product you want to purchase</h2>
+<img src="menu.webp" alt="Workplace" usemap="#menumap" width="450" height="470">
+<map name="menumap"> 
+  <area shape="circle" coords="193,98,58" alt="Meat and Fish" href="https://en.wikipedia.org/wiki/Meat">
+  <area shape="circle" coords="323,136,58" alt="Vegetables" href="https://en.wikipedia.org/wiki/Vegetables">
+  <area shape="circle" coords="356,260,58" alt="Milk and Dairy" href="https://en.wikipedia.org/wiki/Dairy">
+  <area shape="circle" coords="259,361,58" alt="Bread and Cereals" href="https://en.wikipedia.org/wiki/Bread">
+  <area shape="circle" coords="119,325,58" alt="Fruit" href="https://en.wikipedia.org/wiki/Fruits">
+  <area shape="circle" coords="87,189,58" alt="Sweets" href="https://en.wikipedia.org/wiki/Confectionery">
+</map>
+<audio>
+  <source src="music.mp3" type="audio/mpeg">
+  Your Browser does not support the audio element.
+</audio>
+<br>
+<p>This is the ad by our sponsers.</p>
+<video width="800" height="450" preload authoplay controls>
+  <source src="video.mp4" type="video/mp4">
+  Your Browser does not support the Video element/tag.
+</video>
+
+
+<h2>These are the products we serve</h2>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Meat">Meat and Fish</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Vegetables">Vegetables</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Milk">Milk and Dairy</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Bread">Bread and Cereals</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Fruits">Fruits</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Sweets">Sweets</a></li>
+</ul>
+
+<table>
+    <tr>
+      <th>Product</th>
+      <th>Description</th>
+      <th>Amount</th>
+    </tr>
+    <tr>
+      <td>Meat and Fish</td>
+      <td>Tender and fresh chicken</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>Vegetables</td>
+      <td>Fresh veggies from the farm</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <td>Milk and Dairy</td>
+      <td>From our own farms and Cows</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <td>Bread and Cereals</td>
+      <td>Fresh Fruits with highest quality</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Fruits</td>
+      <td>Fresh Fruits from the farm</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Sweets</td>
+      <td>Delicious Confectionery to ease you out/td>
+      <td>120</td>
+    </tr>
+  </table>
+  <h2 class="heading">Our social media handles</h2>
+<a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>&emsp;
+<a href="https://instagram.com/"><i class="fa fa-instagram"></i></a>&emsp;
+<a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>&emsp;
+<a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>&emsp;
+<br><br>
+  <canvas id="myCanvas" width="300" height="200" style="border:1px solid #000000;"></canvas>
+  <script>
+    const canvas=document.getElementById('myCanvas');
+    const context =canvas.getContext('2d');
+    context.beginPath();
+    context.arc(75,75,50,0, Math.PI*2, true);
+    context.moveTo(110,75);
+    context.arc(75,75,35,0, Math.PI, false);
+    context.moveTo(65,65);
+    context.arc(60,65,5,0, Math.PI*2, true);
+    context.moveTo(95,65);
+    context.arc(90,65,5,0, Math.PI*2, true);
+    context.stroke();
+  </script>
+  <script>
+function validateForm()
+{
+  var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  let email = document.forms["myForm"]["email"].value;
+  var phoneno = /^\d{10}$/;
+  let phone = document.forms["myForm"]["contact"].value;
+  var pw = document.getElementById("pswd").value;
+  var cpw = document.getElementById("cpswd").value;
+  var city = document.getElementById('city');
+
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("First Name cannot be empty");
+    return false;
+  }
+  
+  else if(!email.match(mailformat))
+  {
+  alert("You have entered an invalid email address!");
+  return false;
+  }  
+  
+  else if(!phone.match(phoneno))
+  {
+    alert("Phone number must be of 10 digits");
+  return false;
+  }
+
+  
+    //check empty password field
+  else if(pw == "") {
+    alert ("Password Cannot be Blank!"); 
+    return false;
+    }
+  
+  //minimum password length validation
+  else if(pw.length < 8) {
+    alert ("Password Length is too short!");
+    return false
+    }
+
+  //maximum length of password validation
+  else if(pw.length > 15) {
+    alert("Password length must not exceed 15 characters");
+    return false;
+  }
+  else if(cpw != pw){
+    alert("Passwords Do Not Match!");
+    return false;
+  }
+  
+  else if(city.selectedIndex == 0 || city.options[city.selectedIndex].value == -1) {
+  alert('Please Select Your City');
+  return false;
+  }
+  else if(!myForm.terms.checked) {
+      alert("Please indicate that you accept the Terms and Conditions");
+      myForm.terms.focus();
+      return false;
+  }
+    else
+    {
+      alert("Form Submitted succesfully");
+      location.reload();
+    }
+}   
+</script>
+<p><strong>Thanks for Shopping..!</strong></p>
+</body>
+</body>
+</html>
