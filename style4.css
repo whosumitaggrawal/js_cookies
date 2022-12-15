@@ -1,0 +1,68 @@
+body{
+    background-color: rgb(191, 241, 187);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+table{
+    border: 1px solid rgba(59, 13, 13, 0.925);
+    margin-left: 15%;
+    margin-top: 10%;
+    border-radius: 20px;
+    background-color: azure;
+    font-family:'Times New Roman', Times, serif;
+    font-style: italic;
+    
+}
+td{
+    padding: 10px;
+    border: 1px solid rgb(10, 94, 38);
+}
+th{
+    text-align: center;
+    border: 1px solid orange;
+    background-color: orange;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+header {
+    background-color: rgba(59, 13, 13, 0.925);
+    height: 60px;
+    display: flexbox;
+    z-index: 0;
+}
+
+header .navbar {
+    display: flexbox;
+}
+
+header .navbar ul {
+    display: flex;
+}
+
+header .navbar ul li {
+    display: flex;
+    list-style: none;
+}
+
+header .navbar ul li a {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+    padding: 20px;
+}
+
+header .navbar ul li a:hover {
+    background-color: white;
+    color: rgba(59,13,13,0.925);
+    border-radius: 20px;
+}
+
+#login {
+    margin-left: 750px;
+    background-color: violet;
+    color: rgba(59,13,13,0.925);
+}
+
+#login:hover {
+    background-color: white;
+    border-radius: 20px;
+}
